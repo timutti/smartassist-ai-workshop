@@ -31,9 +31,9 @@ src/                        — Zdrojový kód aplikace (Python + React)
 ## Tipy pro práci s AI
 
 - Nechte AI přečíst a analyzovat všechny dokumenty najednou
-- Ptejte se na konkrétní věci: *„Jaký je stav rozpočtu?"*, *„Jsou v projektu nějaká rizika, která nejsou v registru?"*
-- Požádejte AI o porovnání informací mezi dokumenty — *„Odpovídá harmonogram tomu, co říkají zápisy ze schůzek?"*
-- Nechte AI prozkoumat i zdrojový kód — *„V jakém stavu jsou jednotlivé moduly?"*
+- Ptejte se na konkrétní věci: *„Jaký je aktuální stav projektu?"*, *„Stíháme termín?"*
+- Požádejte AI o porovnání informací mezi dokumenty — *„Jsou dokumenty vzájemně konzistentní?"*
+- Nechte AI prozkoumat i zdrojový kód — *„V jakém stavu je aplikace?"*
 
 ## Spuštění aplikace (volitelné)
 
