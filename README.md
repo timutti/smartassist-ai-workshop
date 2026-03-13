@@ -28,12 +28,21 @@ docs/                       — Projektová dokumentace
 src/                        — Zdrojový kód aplikace (Python + React)
 ```
 
-## Tipy pro práci s AI
+## Tipy a ukázkové prompty
 
-- Nechte AI přečíst a analyzovat všechny dokumenty najednou
-- Ptejte se na konkrétní věci: *„Jaký je aktuální stav projektu?"*, *„Stíháme termín?"*
-- Požádejte AI o porovnání informací mezi dokumenty — *„Jsou dokumenty vzájemně konzistentní?"*
-- Nechte AI prozkoumat i zdrojový kód — *„V jakém stavu je aplikace?"*
+Začněte tím, že AI nástroji řeknete, ať si přečte celý projekt. Pak se ptejte:
+
+**Orientace v projektu:**
+> *Přečti si všechny dokumenty v docs/ a zdrojový kód v src/. Shrň mi aktuální stav projektu — co je hotovo, co ne, a jaké vidíš problémy.*
+
+**Dashboard pro vedení:**
+> *Připrav mi přehledový dashboard o stavu projektu. Použij tabulky, traffic light indikátory (🟢🟡🔴) a stručné komentáře. Dashboard musí pokrývat harmonogram, rozpočet, rizika a stav deliverables.*
+
+**Akční plán:**
+> *Na základě analýzy projektu navrhni prioritizovaný akční plán — co musím vyřešit tento týden, co tento měsíc a co je strategické. Ke každému úkolu uveď proč je důležitý.*
+
+**Status report pro klienta:**
+> *Napiš profesionální status report e-mail pro klienta NovaTech. Buď transparentní, ale konstruktivní — ukaž problémy i návrhy řešení.*
 
 ## Spuštění aplikace (volitelné)
 
