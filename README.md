@@ -1,83 +1,68 @@
-# SmartAssist AI
+# SmartAssist AI — Workshop projekt
 
-AI chatbot pro zákaznickou podporu e-shopu **NovaTech a.s.**
+## Situace
 
-Projekt vyvíjí **DataFlow Solutions s.r.o.** na zakázku. Chatbot odpovídá zákazníkům na dotazy ohledně produktů, objednávek a reklamací na základě firemní znalostní báze.
+Je 17. března 2026. Váš kolega **Martin Novák**, projektový manažer ve firmě **DataFlow Solutions s.r.o.**, nečekaně onemocněl. Martin vedl projekt **SmartAssist AI** — inteligentní chatbot pro zákaznickou podporu e-shopu **NovaTech a.s.**
 
-## Workshop: Vibecoding v project managementu
+Vedení vás požádalo, abyste projekt dočasně převzali. Máte přístup k tomuto repozitáři — je to vše, co od Martina máte. Termín dodání se blíží a klient je nervózní.
 
-> **Situace:** Vedoucí projektu Martin Novák nečekaně onemocněl. Vy ho zastupujete. Dostali jste přístup k repozitáři projektu a musíte se rychle zorientovat.
->
-> **Vaše úkoly:**
-> 1. Pomocí AI se zorientujte v projektu — co je hotovo, co ne, kde jsou problémy
-> 2. Vytvořte si přehled (dashboard) o stavu projektu
-> 3. Připravte seznam úkolů pro další postup
+## Vaše úkoly
 
-### Co v projektu najdete
+1. **Zorientujte se v projektu** — pomocí AI nástrojů prozkoumejte dokumentaci i zdrojový kód. Co je hotovo? Co ne? Kde jsou problémy?
+2. **Vytvořte si přehledový dashboard** — shrňte stav projektu tak, abyste ho mohli prezentovat vedení
+3. **Připravte akční plán** — co je potřeba udělat jako první? Jaká rozhodnutí musíte udělat?
+
+## Co v projektu najdete
 
 ```
-docs/               — Projektová dokumentace
-  smlouva.md           Smlouva o dílo s klientem
-  harmonogram.md       Plánovaný harmonogram
-  rozpocet.md          Rozpočet a čerpání
-  odhady-pracnosti.md  Odhady jednotlivých funkcí
-  backlog.md           Seznam úkolů
-  rizika.md            Registr rizik
-  architektura.md      Technická architektura
-  zapisy/              Zápisy ze schůzek s klientem
+docs/                       — Projektová dokumentace
+  smlouva.md                   Smlouva o dílo s klientem NovaTech a.s.
+  harmonogram.md               Harmonogram sprintů a milníků
+  rozpocet.md                  Rozpočet projektu a čerpání
+  odhady-pracnosti.md          Odhady pracnosti jednotlivých funkcí
+  backlog.md                   Product backlog — co je hotovo, co zbývá
+  rizika.md                    Registr rizik projektu
+  architektura.md              Technická architektura řešení
+  zapisy/                      Zápisy ze schůzek s klientem (5 zápisů)
 
-src/                — Zdrojový kód aplikace
-tests/              — Testy
+src/                        — Zdrojový kód aplikace (Python + React)
 ```
 
-## Spuštění projektu
+## Tipy pro práci s AI
 
-### 1. Nainstalujte uv (správce balíčků pro Python)
+- Nechte AI přečíst a analyzovat všechny dokumenty najednou
+- Ptejte se na konkrétní věci: *„Jaký je stav rozpočtu?"*, *„Jsou v projektu nějaká rizika, která nejsou v registru?"*
+- Požádejte AI o porovnání informací mezi dokumenty — *„Odpovídá harmonogram tomu, co říkají zápisy ze schůzek?"*
+- Nechte AI prozkoumat i zdrojový kód — *„V jakém stavu jsou jednotlivé moduly?"*
 
-**macOS / Linux:**
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+## Spuštění aplikace (volitelné)
 
-**Windows (PowerShell):**
-```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
+Pro analýzu projektu **není nutné aplikaci spouštět** — stačí prozkoumat dokumenty a kód. Pokud ale chcete vidět frontend:
 
-### 2. Spusťte projekt
+1. Nainstalujte [uv](https://docs.astral.sh/uv/) (správce balíčků pro Python):
+   ```bash
+   # macOS / Linux
+   curl -LsSf https://astral.sh/uv/install.sh | sh
 
-**macOS / Linux:**
-```bash
-./start.sh
-```
+   # Windows (PowerShell)
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
 
-**Windows:**
-```
-start.bat
-```
+2. Spusťte server:
+   ```bash
+   # macOS / Linux
+   ./start.sh
 
-Nebo ručně:
-```bash
-uv sync
-uv run fastapi dev src/smartassist/main.py
-```
+   # Windows
+   start.bat
+   ```
 
-Aplikace poběží na **http://localhost:8000**
-
-### 3. Nastavení AI (volitelné)
-
-Pro plnou funkčnost chatbota zkopírujte `.env.example` do `.env` a vyplňte API klíče:
-
-```bash
-cp .env.example .env
-```
-
-> **Poznámka:** Pro účely workshopu (analýza projektu pomocí AI) není nutné mít chatbot funkční. Stačí prozkoumat kód a dokumenty.
+3. Otevřete **http://localhost:8000**
 
 ## Tech stack
 
-- **Python 3.13** + **FastAPI**
+- **Python 3.13** + **FastAPI** — backend
 - **PydanticAI** — AI agent framework
-- **Qdrant** — vektorová databáze
-- **React + shadcn/ui** — frontend (pre-built)
-- **uv** — správce balíčků
+- **Qdrant** — vektorová databáze (in-memory)
+- **React + TypeScript + shadcn/ui** — frontend (předkompilovaný)
+- **uv** — správce balíčků a runtime
