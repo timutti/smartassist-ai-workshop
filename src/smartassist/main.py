@@ -52,11 +52,15 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
         retriever = None
 
     # Initialize the AI agent
-    agent = SmartAssistAgent(
-        model_name=settings.model_name,
-        retriever=retriever,
-    )
-    logger.info("SmartAssist agent initialized with model: %s", settings.model_name)
+    try:
+        agent = SmartAssistAgent(
+            model_name=settings.model_name,
+            retriever=retriever,
+        )
+        logger.info("SmartAssist agent initialized with model: %s", settings.model_name)
+    except Exception:
+        logger.warning("Failed to initialize AI agent (missing API key?) - chat will return mock responses")
+        agent = None
 
     yield
 
