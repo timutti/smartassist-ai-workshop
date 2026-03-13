@@ -1,5 +1,17 @@
 # SmartAssist AI — Workshop projekt
 
+## Jak začít
+
+**Varianta A — Stáhnout ZIP (nejjednodušší):**
+1. Klikněte na [**Download ZIP**](https://github.com/timutti/smartassist-ai-workshop/archive/refs/heads/main.zip)
+2. Rozbalte složku a otevřete ji ve svém AI nástroji (Cursor, VS Code, apod.)
+
+**Varianta B — Klonovat přes terminál:**
+```bash
+git clone https://github.com/timutti/smartassist-ai-workshop.git
+cd smartassist-ai-workshop
+```
+
 ## Situace
 
 Je 17. března 2026. Váš kolega **Martin Novák**, projektový manažer ve firmě **DataFlow Solutions s.r.o.**, nečekaně onemocněl. Martin vedl projekt **SmartAssist AI** — inteligentní chatbot pro zákaznickou podporu e-shopu **NovaTech a.s.**
