@@ -77,9 +77,7 @@ class SmartAssistAgent:
 
             context_parts = []
             for i, result in enumerate(results, 1):
-                context_parts.append(
-                    f"[Dokument {i}] (relevance: {result['score']:.2f})\n{result['text']}"
-                )
+                context_parts.append(f"[Dokument {i}] (relevance: {result['score']:.2f})\n{result['text']}")
 
             context = "\n\n---\n\n".join(context_parts)
             logger.debug("Retrieved %d context documents for query", len(results))
@@ -92,11 +90,7 @@ class SmartAssistAgent:
     def _build_user_message(self, message: str, context: str) -> str:
         """Build the full user message with RAG context."""
         if context:
-            return (
-                f"Kontext z knowledge base:\n{context}\n\n"
-                f"---\n\n"
-                f"Zpráva zákazníka: {message}"
-            )
+            return f"Kontext z knowledge base:\n{context}\n\n---\n\nZpráva zákazníka: {message}"
         return f"Zpráva zákazníka: {message}"
 
     async def get_response(self, message: str) -> str:

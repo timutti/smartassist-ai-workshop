@@ -11,7 +11,6 @@ Dokumentace: https://developer.zendesk.com/api-reference/
 # Viz incident z 10.2. kdy nám Zendesk zablokoval přístup na 5 minut
 
 import logging
-from datetime import datetime, timezone
 from typing import Any
 
 import httpx
@@ -147,10 +146,7 @@ class ZendeskClient:
         #     response = await client.get(next_page)
         #     ...
 
-        if include_private:
-            comments = all_comments
-        else:
-            comments = [c for c in all_comments if c.get("public", True)]
+        comments = all_comments if include_private else [c for c in all_comments if c.get("public", True)]
 
         logger.info(
             "Retrieved %d comments for ticket #%s (include_private=%s)",
@@ -203,10 +199,7 @@ class ZendeskClient:
         # Zendesk někdy vrací "open" i pro tickety které jsme zavřeli přes API
         # Možná je to race condition s jejich webhooky?
         # Viz Slack vlákno #integrace z 18.2.
-        raise NotImplementedError(
-            "Ticket status sync is not yet implemented. "
-            "See SMART-38 for progress."
-        )
+        raise NotImplementedError("Ticket status sync is not yet implemented. See SMART-38 for progress.")
 
     async def close(self) -> None:
         """Close the HTTP client."""

@@ -14,8 +14,6 @@ and optional translation of knowledge base content.
 """
 
 import logging
-import re
-from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -28,15 +26,50 @@ SUPPORTED_LANGUAGES = ["cs", "en"]
 # Basic language detection heuristics
 # TODO: Replace with proper library (langdetect or lingua-py)
 _CZECH_MARKERS = [
-    "ř", "ů", "ž", "š", "č", "ě", "ý", "á", "í", "é",
-    "jak", "kde", "proč", "kolik", "chci", "potřebuji", "objednávka",
-    "reklamace", "dobrý den", "děkuji", "prosím",
+    "ř",
+    "ů",
+    "ž",
+    "š",
+    "č",
+    "ě",
+    "ý",
+    "á",
+    "í",
+    "é",
+    "jak",
+    "kde",
+    "proč",
+    "kolik",
+    "chci",
+    "potřebuji",
+    "objednávka",
+    "reklamace",
+    "dobrý den",
+    "děkuji",
+    "prosím",
 ]
 
 _ENGLISH_MARKERS = [
-    "the", "is", "are", "was", "were", "have", "has",
-    "how", "what", "where", "when", "why", "want", "need",
-    "order", "delivery", "return", "hello", "thank", "please",
+    "the",
+    "is",
+    "are",
+    "was",
+    "were",
+    "have",
+    "has",
+    "how",
+    "what",
+    "where",
+    "when",
+    "why",
+    "want",
+    "need",
+    "order",
+    "delivery",
+    "return",
+    "hello",
+    "thank",
+    "please",
 ]
 
 # _SLOVAK_MARKERS = [

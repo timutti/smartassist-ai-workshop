@@ -83,11 +83,13 @@ class QdrantRetriever:
 
             documents = []
             for point in results.points:
-                documents.append({
-                    "text": point.payload.get("text", ""),
-                    "filename": point.payload.get("filename", ""),
-                    "score": point.score,
-                })
+                documents.append(
+                    {
+                        "text": point.payload.get("text", ""),
+                        "filename": point.payload.get("filename", ""),
+                        "score": point.score,
+                    }
+                )
 
             logger.debug("Search returned %d results for query: %s", len(documents), query[:80])
             return documents

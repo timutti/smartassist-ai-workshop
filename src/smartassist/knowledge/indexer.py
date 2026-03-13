@@ -68,11 +68,13 @@ class DocumentIndexer:
             if file_path.suffix.lower() in supported_extensions:
                 try:
                     content = file_path.read_text(encoding="utf-8")
-                    documents.append({
-                        "filename": file_path.name,
-                        "content": content,
-                        "path": str(file_path),
-                    })
+                    documents.append(
+                        {
+                            "filename": file_path.name,
+                            "content": content,
+                            "path": str(file_path),
+                        }
+                    )
                     logger.info("Read document: %s (%d chars)", file_path.name, len(content))
                 except Exception:
                     logger.exception("Failed to read document: %s", file_path.name)
@@ -102,12 +104,14 @@ class DocumentIndexer:
 
             chunk_text = text[start:end].strip()
             if chunk_text:
-                chunks.append({
-                    "text": chunk_text,
-                    "filename": filename,
-                    "start_char": start,
-                    "end_char": end,
-                })
+                chunks.append(
+                    {
+                        "text": chunk_text,
+                        "filename": filename,
+                        "start_char": start,
+                        "end_char": end,
+                    }
+                )
 
             start = end - self.chunk_overlap
             if start >= text_length:

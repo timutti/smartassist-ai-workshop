@@ -9,12 +9,11 @@ import logging
 import uuid
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
-from datetime import datetime, timezone
 from pathlib import Path
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, StreamingResponse
+from fastapi.responses import StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -30,7 +29,7 @@ retriever: QdrantRetriever | None = None
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+async def lifespan(app: FastAPI) -> AsyncGenerator[None]:
     """Application lifespan - initialize and cleanup resources."""
     global agent, retriever
 
@@ -121,7 +120,7 @@ async def health_check() -> HealthResponse:
     )
 
 
-async def _generate_sse_response(message: str, conversation_id: str) -> AsyncGenerator[str, None]:
+async def _generate_sse_response(message: str, conversation_id: str) -> AsyncGenerator[str]:
     """Generate SSE stream for chat response.
 
     Streams tokens from the agent as Server-Sent Events.
@@ -135,20 +134,24 @@ async def _generate_sse_response(message: str, conversation_id: str) -> AsyncGen
         full_response = ""
         async for token in agent.stream_response(message):
             full_response += token
-            event_data = json.dumps({
-                "token": token,
-                "conversation_id": conversation_id,
-                "done": False,
-            })
+            event_data = json.dumps(
+                {
+                    "token": token,
+                    "conversation_id": conversation_id,
+                    "done": False,
+                }
+            )
             yield f"data: {event_data}\n\n"
 
         # Send completion event
-        done_data = json.dumps({
-            "token": "",
-            "conversation_id": conversation_id,
-            "done": True,
-            "full_response": full_response,
-        })
+        done_data = json.dumps(
+            {
+                "token": "",
+                "conversation_id": conversation_id,
+                "done": True,
+                "full_response": full_response,
+            }
+        )
         yield f"data: {done_data}\n\n"
 
     except Exception as e:
@@ -229,6 +232,7 @@ _frontend_dist = Path(__file__).parent / "frontend" / "dist"
 if _frontend_dist.exists():
     app.mount("/", StaticFiles(directory=str(_frontend_dist), html=True), name="frontend")
 else:
+
     @app.get("/")
     async def root() -> dict:
         """Root endpoint - frontend not built yet."""

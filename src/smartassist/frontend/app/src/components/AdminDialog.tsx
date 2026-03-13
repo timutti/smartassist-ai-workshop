@@ -1,8 +1,12 @@
-import { Settings, BarChart3, Headphones, BookOpen, MessagesSquare } from "lucide-react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog"
-import { Badge } from "./ui/badge"
-import { Button } from "./ui/button"
-import { Separator } from "./ui/separator"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
+import { Badge } from "@/components/ui/badge"
+import { BarChart3, Users, Settings, Shield } from "lucide-react"
 
 interface AdminDialogProps {
   open: boolean
@@ -11,78 +15,60 @@ interface AdminDialogProps {
 
 const plannedFeatures = [
   {
-    icon: MessagesSquare,
-    title: "Prehled konverzaci",
-    description: "Sprava a historie vsech konverzaci",
-  },
-  {
     icon: BarChart3,
-    title: "Analytika a reporty",
-    description: "Metriky vyuziti, spokojenosti a efektivity",
+    title: "Analytika konverzací",
+    description: "Přehled statistik a metrik chatového provozu",
   },
   {
-    icon: Headphones,
-    title: "Integrace Zendesk",
-    description: "Napojeni na existujici ticketovaci system",
+    icon: Users,
+    title: "Správa uživatelů",
+    description: "Správa rolí, oprávnění a přístupů",
   },
   {
-    icon: BookOpen,
-    title: "Sprava znalostni baze",
-    description: "Upload a sprava dokumentu pro AI",
+    icon: Settings,
+    title: "Konfigurace AI modelu",
+    description: "Nastavení parametrů a chování AI asistenta",
+  },
+  {
+    icon: Shield,
+    title: "Bezpečnostní logy",
+    description: "Auditní záznamy a sledování přístupů",
   },
 ]
 
 export function AdminDialog({ open, onOpenChange }: AdminDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent onClose={() => onOpenChange(false)} className="mx-4">
+      <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800">
-              <Settings className="h-4 w-4 text-slate-600 dark:text-slate-400" />
-            </div>
-            <DialogTitle>Admin Dashboard</DialogTitle>
-          </div>
+          <DialogTitle>Admin Dashboard</DialogTitle>
           <DialogDescription>
-            Admin dashboard je ve vyvoji.
+            Admin dashboard je ve vývoji. Bude obsahovat:
           </DialogDescription>
         </DialogHeader>
 
-        <Separator className="my-4" />
-
-        <div className="space-y-3">
-          <p className="text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
-            Planovane funkce
-          </p>
+        <div className="grid gap-3">
           {plannedFeatures.map((feature) => (
             <div
               key={feature.title}
-              className="flex items-start gap-3 rounded-lg border border-slate-100 p-3 dark:border-slate-800"
+              className="flex items-start gap-3 rounded-lg border border-border/60 bg-muted/40 p-3"
             >
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-100 dark:bg-slate-800">
-                <feature.icon className="h-4 w-4 text-slate-500 dark:text-slate-400" />
+              <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+                <feature.icon className="size-4" />
               </div>
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 space-y-0.5">
                 <div className="flex items-center gap-2">
-                  <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
-                    {feature.title}
-                  </p>
-                  <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
-                    Planovano
+                  <span className="text-sm font-medium">{feature.title}</span>
+                  <Badge variant="secondary" className="text-[0.65rem]">
+                    Plánováno
                   </Badge>
                 </div>
-                <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-muted-foreground">
                   {feature.description}
                 </p>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-4 flex justify-end">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
-            Zavrit
-          </Button>
         </div>
       </DialogContent>
     </Dialog>

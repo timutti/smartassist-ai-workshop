@@ -1,94 +1,76 @@
-import * as React from "react"
-import { Send, Paperclip } from "lucide-react"
-import { Button } from "./ui/button"
-import { cn } from "../lib/utils"
+import { useRef, useCallback, type KeyboardEvent } from "react"
+import { SendHorizonal, Paperclip } from "lucide-react"
+import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 interface ChatInputProps {
-  onSend: (message: string) => void
+  value: string
+  onChange: (value: string) => void
+  onSend: () => void
   disabled?: boolean
-  className?: string
 }
 
-export function ChatInput({ onSend, disabled = false, className }: ChatInputProps) {
-  const [value, setValue] = React.useState("")
-  const textareaRef = React.useRef<HTMLTextAreaElement>(null)
+export function ChatInput({ value, onChange, onSend, disabled }: ChatInputProps) {
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-  const adjustHeight = React.useCallback(() => {
-    const textarea = textareaRef.current
-    if (textarea) {
-      textarea.style.height = "auto"
-      const lineHeight = 24
-      const maxLines = 4
-      const maxHeight = lineHeight * maxLines
-      textarea.style.height = `${Math.min(textarea.scrollHeight, maxHeight)}px`
-    }
-  }, [])
-
-  React.useEffect(() => {
-    adjustHeight()
-  }, [value, adjustHeight])
-
-  const handleSend = React.useCallback(() => {
-    const trimmed = value.trim()
-    if (trimmed && !disabled) {
-      onSend(trimmed)
-      setValue("")
-      // Reset height after clearing
-      requestAnimationFrame(() => {
-        if (textareaRef.current) {
-          textareaRef.current.style.height = "auto"
-        }
-      })
-    }
-  }, [value, disabled, onSend])
-
-  const handleKeyDown = React.useCallback(
-    (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLTextAreaElement>) => {
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault()
-        handleSend()
+        if (value.trim() && !disabled) {
+          onSend()
+        }
       }
     },
-    [handleSend]
+    [value, disabled, onSend]
   )
 
   return (
-    <div
-      className={cn(
-        "flex items-end gap-2 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm transition-shadow focus-within:shadow-md focus-within:ring-2 focus-within:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-900",
-        className
-      )}
-    >
-      <Button
-        variant="ghost"
-        size="icon"
-        className="shrink-0 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
-        disabled
-        aria-label="Pripojit soubor"
-      >
-        <Paperclip className="h-5 w-5" />
-      </Button>
+    <div className="border-t bg-background/80 backdrop-blur-sm p-4">
+      <div className="mx-auto flex max-w-3xl items-end gap-2">
+        {/* Paperclip button (decorative) */}
+        <Button
+          variant="ghost"
+          size="icon"
+          disabled
+          className="shrink-0 text-muted-foreground"
+          aria-label="Priložit soubor"
+        >
+          <Paperclip className="size-4" />
+        </Button>
 
-      <textarea
-        ref={textareaRef}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Napiste svou zpravu..."
-        disabled={disabled}
-        rows={1}
-        className="flex-1 resize-none border-0 bg-transparent py-2 text-sm leading-6 text-slate-900 placeholder:text-slate-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:text-slate-100 dark:placeholder:text-slate-500"
-      />
+        {/* Textarea */}
+        <Textarea
+          ref={textareaRef}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Napište zprávu..."
+          disabled={disabled}
+          rows={1}
+          className={cn(
+            "min-h-10 max-h-32 resize-none rounded-xl",
+            "focus-visible:ring-primary-500/30"
+          )}
+        />
 
-      <Button
-        size="icon"
-        onClick={handleSend}
-        disabled={disabled || !value.trim()}
-        className="shrink-0"
-        aria-label="Odeslat zpravu"
-      >
-        <Send className="h-4 w-4" />
-      </Button>
+        {/* Send button */}
+        <Button
+          onClick={onSend}
+          disabled={disabled || !value.trim()}
+          size="icon"
+          className={cn(
+            "shrink-0 rounded-xl transition-colors",
+            value.trim() && !disabled
+              ? "bg-primary-600 hover:bg-primary-700 text-white"
+              : ""
+          )}
+          aria-label="Odeslat zprávu"
+        >
+          <SendHorizonal className="size-4" />
+        </Button>
+      </div>
     </div>
   )
 }

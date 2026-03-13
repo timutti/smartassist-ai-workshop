@@ -1,13 +1,13 @@
-import { useState, useRef, useEffect, useCallback } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Sun, Moon, Sparkles } from "lucide-react"
-import { Button } from "./components/ui/button"
-import { ScrollArea } from "./components/ui/scroll-area"
-import { Separator } from "./components/ui/separator"
-import { ChatMessage } from "./components/ChatMessage"
-import { ChatInput } from "./components/ChatInput"
-import { Sidebar } from "./components/Sidebar"
-import { AdminDialog } from "./components/AdminDialog"
-import { TypingIndicator } from "./components/TypingIndicator"
+import { Button } from "@/components/ui/button"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+import { TooltipProvider } from "@/components/ui/tooltip"
+import { ChatMessage } from "@/components/ChatMessage"
+import { ChatInput } from "@/components/ChatInput"
+import { Sidebar } from "@/components/Sidebar"
+import { TypingIndicator } from "@/components/TypingIndicator"
 
 interface Message {
   id: string
@@ -16,262 +16,252 @@ interface Message {
   timestamp: string
 }
 
-const INITIAL_MESSAGES: Message[] = [
+const initialMessages: Message[] = [
   {
     id: "1",
     role: "assistant",
     content:
-      "Dobry den! Jsem SmartAssist, virtualni asistent NovaTech. Jak vam mohu pomoci?",
-    timestamp: "10:00",
+      "Dobrý den! Jsem SmartAssist, virtuální asistent NovaTech. Jak vám mohu pomoci?",
+    timestamp: "09:00",
   },
   {
     id: "2",
     role: "user",
     content:
-      "Chtel bych reklamovat notebook, ktery jsem koupil minuly mesic.",
-    timestamp: "10:01",
+      "Chtěl bych reklamovat notebook, který jsem koupil minulý měsíc.",
+    timestamp: "09:01",
   },
   {
     id: "3",
     role: "assistant",
     content:
-      "Mrzi me, ze mate potize s vasim notebookem. Rad vam pomohu s reklamaci. Muzete mi prosim sdelit cislo vasi objednavky? Najdete ho v potvrzovacim e-mailu.",
-    timestamp: "10:01",
+      "Mrzí mě, že máte potíže s vaším notebookem. Rád vám pomohu s reklamací. Můžete mi prosím sdělit číslo vaší objednávky? Najdete ho v potvrzovacím e-mailu.",
+    timestamp: "09:01",
   },
   {
     id: "4",
     role: "user",
-    content: "Cislo objednavky je NT-2026-04521.",
-    timestamp: "10:02",
+    content: "Číslo objednávky je NT-2026-04521.",
+    timestamp: "09:02",
   },
   {
     id: "5",
     role: "assistant",
     content:
-      "Dekuji. Nasel jsem vasi objednavku **NT-2026-04521** — Notebook ProBook X15, zakoupeny 14. unora 2026. Jaky problem s notebookem mate?",
-    timestamp: "10:02",
+      "Děkuji. Našel jsem vaši objednávku **NT-2026-04521** — Notebook ProBook X15, zakoupený 14. února 2026. Jaký problém s notebookem máte?",
+    timestamp: "09:02",
   },
 ]
 
-function getTimeString(): string {
-  return new Date().toLocaleTimeString("cs-CZ", {
-    hour: "2-digit",
-    minute: "2-digit",
-  })
-}
-
-function useDarkMode() {
-  const [dark, setDark] = useState(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("smartassist-theme")
-      if (saved) return saved === "dark"
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-    }
-    return false
-  })
-
-  useEffect(() => {
-    const root = document.documentElement
-    if (dark) {
-      root.classList.add("dark")
-    } else {
-      root.classList.remove("dark")
-    }
-    localStorage.setItem("smartassist-theme", dark ? "dark" : "light")
-  }, [dark])
-
-  return [dark, setDark] as const
+function getInitialDarkMode(): boolean {
+  const stored = localStorage.getItem("smartassist-dark-mode")
+  if (stored !== null) return stored === "true"
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
 }
 
 export default function App() {
-  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES)
+  const [messages, setMessages] = useState<Message[]>(initialMessages)
+  const [input, setInput] = useState("")
   const [isTyping, setIsTyping] = useState(false)
-  const [isSending, setIsSending] = useState(false)
-  const [adminOpen, setAdminOpen] = useState(false)
-  const [dark, setDark] = useDarkMode()
+  const [darkMode, setDarkMode] = useState(getInitialDarkMode)
   const scrollRef = useRef<HTMLDivElement>(null)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [])
-
+  // Apply dark mode class to root element
   useEffect(() => {
-    scrollToBottom()
-  }, [messages, isTyping, scrollToBottom])
+    document.documentElement.classList.toggle("dark", darkMode)
+    localStorage.setItem("smartassist-dark-mode", String(darkMode))
+  }, [darkMode])
 
-  const handleSend = useCallback(
-    async (content: string) => {
-      const userMessage: Message = {
-        id: Date.now().toString(),
-        role: "user",
-        content,
-        timestamp: getTimeString(),
+  // Auto-scroll to bottom on new messages or typing
+  useEffect(() => {
+    if (scrollRef.current) {
+      const viewport = scrollRef.current.querySelector(
+        "[data-slot='scroll-area-viewport']"
+      )
+      if (viewport) {
+        viewport.scrollTop = viewport.scrollHeight
+      }
+    }
+  }, [messages, isTyping])
+
+  const sendMessage = useCallback(async () => {
+    const text = input.trim()
+    if (!text || isTyping) return
+
+    const userMessage: Message = {
+      id: String(Date.now()),
+      role: "user",
+      content: text,
+      timestamp: new Date().toLocaleTimeString("cs-CZ", {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+    }
+
+    setMessages((prev) => [...prev, userMessage])
+    setInput("")
+    setIsTyping(true)
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text }),
+      })
+
+      if (!response.ok || !response.body) {
+        throw new Error("Fetch failed")
       }
 
-      setMessages((prev) => [...prev, userMessage])
-      setIsSending(true)
-      setIsTyping(true)
+      // SSE streaming: read from the body
+      const reader = response.body.getReader()
+      const decoder = new TextDecoder()
+      let assistantContent = ""
+      const assistantId = String(Date.now() + 1)
 
-      try {
-        const response = await fetch("/api/chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "text/event-stream",
-          },
-          body: JSON.stringify({ message: content }),
-        })
+      // Add empty assistant message to stream into
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: assistantId,
+          role: "assistant",
+          content: "",
+          timestamp: new Date().toLocaleTimeString("cs-CZ", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        },
+      ])
+      setIsTyping(false)
 
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`)
-        }
+      let buffer = ""
 
-        const reader = response.body?.getReader()
-        if (!reader) throw new Error("No reader")
+      while (true) {
+        const { done, value } = await reader.read()
+        if (done) break
 
-        const decoder = new TextDecoder()
-        let assistantContent = ""
-        const assistantId = (Date.now() + 1).toString()
+        buffer += decoder.decode(value, { stream: true })
+        const lines = buffer.split("\n")
+        buffer = lines.pop() ?? ""
 
-        setIsTyping(false)
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: assistantId,
-            role: "assistant",
-            content: "",
-            timestamp: getTimeString(),
-          },
-        ])
-
-        let buffer = ""
-        while (true) {
-          const { done, value } = await reader.read()
-          if (done) break
-
-          buffer += decoder.decode(value, { stream: true })
-          const lines = buffer.split("\n")
-          buffer = lines.pop() || ""
-
-          for (const line of lines) {
-            if (line.startsWith("data: ")) {
-              const data = line.slice(6).trim()
-              if (data === "[DONE]") continue
-              try {
-                const parsed = JSON.parse(data)
-                if (parsed.token) {
-                  assistantContent += parsed.token
-                  setMessages((prev) =>
-                    prev.map((m) =>
-                      m.id === assistantId
-                        ? { ...m, content: assistantContent }
-                        : m
-                    )
-                  )
-                }
-              } catch {
-                // skip unparseable lines
-              }
+        for (const line of lines) {
+          const trimmed = line.trim()
+          if (trimmed.startsWith("data: ")) {
+            try {
+              const parsed: { token: string } = JSON.parse(
+                trimmed.slice(6)
+              )
+              assistantContent += parsed.token
+              setMessages((prev) =>
+                prev.map((m) =>
+                  m.id === assistantId
+                    ? { ...m, content: assistantContent }
+                    : m
+                )
+              )
+            } catch {
+              // Skip malformed JSON lines
             }
           }
         }
-      } catch {
-        // Backend not available — show mock response after delay
-        await new Promise((resolve) => setTimeout(resolve, 1500))
-        setIsTyping(false)
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: (Date.now() + 1).toString(),
-            role: "assistant",
-            content:
-              "Omlouvam se, ale momentalne nejsem pripojen k backendu. Pro plnou funkcnost spustte server prikazem `uv run fastapi dev src/smartassist/main.py`",
-            timestamp: getTimeString(),
-          },
-        ])
-      } finally {
-        setIsSending(false)
       }
-    },
-    []
-  )
+    } catch {
+      // Mock fallback response
+      await new Promise((resolve) => setTimeout(resolve, 1500))
+
+      const mockResponse: Message = {
+        id: String(Date.now() + 1),
+        role: "assistant",
+        content:
+          "Děkuji za vaši zprávu. Momentálně zpracovávám váš požadavek. Mohu vám ještě s něčím pomoci?",
+        timestamp: new Date().toLocaleTimeString("cs-CZ", {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      }
+
+      setMessages((prev) => [...prev, mockResponse])
+      setIsTyping(false)
+    }
+  }, [input, isTyping])
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-white dark:bg-slate-950">
-      {/* Sidebar */}
-      <Sidebar onAdminClick={() => setAdminOpen(true)} />
+    <TooltipProvider>
+      <div className="flex h-dvh overflow-hidden bg-background text-foreground">
+        {/* Sidebar */}
+        <Sidebar />
 
-      {/* Main area */}
-      <main className="flex flex-1 flex-col overflow-hidden">
-        {/* Header */}
-        <header className="flex items-center justify-between border-b border-slate-200 bg-white/80 px-4 py-3 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80 lg:px-6">
-          <div className="flex items-center gap-3 pl-12 lg:pl-0">
-            <Sparkles className="h-5 w-5 text-primary-600 dark:text-primary-400" />
-            <div>
-              <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                SmartAssist AI
-              </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
-                NovaTech Podpora
-              </p>
-            </div>
-          </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setDark(!dark)}
-            aria-label={dark ? "Prepnout na svetly rezim" : "Prepnout na tmavy rezim"}
-          >
-            {dark ? (
-              <Sun className="h-5 w-5 text-yellow-500" />
-            ) : (
-              <Moon className="h-5 w-5 text-slate-600" />
-            )}
-          </Button>
-        </header>
+        {/* Main content */}
+        <main className="flex flex-1 flex-col overflow-hidden">
+          {/* Header */}
+          <header className="flex items-center justify-between border-b bg-background/80 px-4 py-3 backdrop-blur-sm md:px-6">
+            {/* Left spacer for mobile hamburger */}
+            <div className="w-8 md:hidden" />
 
-        {/* Messages */}
-        <ScrollArea
-          ref={scrollRef}
-          className="flex-1 overflow-y-auto"
-        >
-          <div className="mx-auto max-w-3xl space-y-4 px-4 py-6 lg:px-6">
-            {messages.map((msg) => (
-              <ChatMessage
-                key={msg.id}
-                role={msg.role}
-                content={msg.content}
-                timestamp={msg.timestamp}
-              />
-            ))}
-            {isTyping && (
-              <div className="flex gap-3">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-primary-500 text-white">
-                  <Sparkles className="h-4 w-4" />
-                </div>
-                <div className="rounded-2xl bg-slate-100 dark:bg-slate-800">
-                  <TypingIndicator />
-                </div>
+            <div className="flex items-center gap-2">
+              <div className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 md:hidden">
+                <Sparkles className="size-3.5 text-white" />
               </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-        </ScrollArea>
+              <div>
+                <h2 className="text-sm font-semibold tracking-tight">
+                  SmartAssist AI
+                </h2>
+                <p className="text-[0.7rem] text-muted-foreground">
+                  NovaTech Podpora
+                </p>
+              </div>
+            </div>
 
-        <Separator />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setDarkMode((prev) => !prev)}
+              aria-label="Přepnout tmavý režim"
+            >
+              {darkMode ? (
+                <Sun className="size-4" />
+              ) : (
+                <Moon className="size-4" />
+              )}
+            </Button>
+          </header>
 
-        {/* Input */}
-        <div className="mx-auto w-full max-w-3xl px-4 py-3 lg:px-6">
-          <ChatInput onSend={handleSend} disabled={isSending} />
-          <p className="mt-2 text-center text-xs text-slate-400 dark:text-slate-500">
-            SmartAssist AI muze delat chyby. Overujte dulezite informace.
-          </p>
-        </div>
-      </main>
+          {/* Messages area */}
+          <ScrollArea ref={scrollRef} className="flex-1">
+            <div className="mx-auto max-w-3xl space-y-4 px-4 py-6 md:px-6">
+              {messages.map((message) => (
+                <ChatMessage
+                  key={message.id}
+                  role={message.role}
+                  content={message.content}
+                  timestamp={message.timestamp}
+                />
+              ))}
 
-      {/* Admin dialog */}
-      <AdminDialog open={adminOpen} onOpenChange={setAdminOpen} />
-    </div>
+              {isTyping && (
+                <div className="flex items-center gap-3">
+                  <div className="flex size-8 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-indigo-600">
+                    <Sparkles className="size-4 text-white" />
+                  </div>
+                  <div className="rounded-2xl rounded-bl-md bg-muted px-4 py-3 ring-1 ring-foreground/5">
+                    <TypingIndicator />
+                  </div>
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+
+          <Separator />
+
+          {/* Input */}
+          <ChatInput
+            value={input}
+            onChange={setInput}
+            onSend={sendMessage}
+            disabled={isTyping}
+          />
+        </main>
+      </div>
+    </TooltipProvider>
   )
 }
