@@ -4,7 +4,7 @@
 
 **Varianta A — Stáhnout ZIP (nejjednodušší):**
 1. Klikněte na [**Download ZIP**](https://github.com/timutti/smartassist-ai-workshop/archive/refs/heads/main.zip)
-2. Rozbalte složku a otevřete ji ve svém AI nástroji (Cursor, VS Code, apod.)
+2. Rozbalte složku a otevřete ji ve svém AI nástroji (Claude Code, Cursor, VS Code, apod.)
 
 **Varianta B — Klonovat přes terminál:**
 ```bash
