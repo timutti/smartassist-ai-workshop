@@ -2,8 +2,8 @@
 
 **Projekt:** SmartAssist AI — inteligentní chatbot pro zákaznickou podporu
 **Klient:** NovaTech a.s.
-**Vytvořeno:** 20. 1. 2026, Martin Novák
-**Poslední aktualizace:** 20. 1. 2026
+**Vytvořeno:** 20. 2. 2026, Martin Novák
+**Poslední aktualizace:** 20. 2. 2026
 
 ---
 
@@ -15,7 +15,7 @@
 |---------|---------|
 | **Pravděpodobnost** | Střední |
 | **Dopad** | Vysoký |
-| **Popis** | NovaTech se zavázal dodat kompletní produktovou dokumentaci do 31. 1. 2026. Pokud dokumentace přijde pozdě nebo bude nekompletní, chatbot nebude mít z čeho se učit a indexace se zpozdí. |
+| **Popis** | NovaTech se zavázal dodat kompletní produktovou dokumentaci do 28. 2. 2026. Pokud dokumentace přijde pozdě nebo bude nekompletní, chatbot nebude mít z čeho se učit a indexace se zpozdí. |
 | **Opatření** | Upozornit klienta na důležitost termínu už na kickoffu. Připravit testovací data pro případ zpoždění. |
 | **Zodpovědný** | Martin Novák |
 | **Stav** | Otevřeno |
@@ -78,4 +78,4 @@
 
 ---
 
-*Zpracoval: Martin Novák, 20. 1. 2026*
+*Zpracoval: Martin Novák, 20. 2. 2026*

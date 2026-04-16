@@ -52,13 +52,13 @@ Předmětem této smlouvy je návrh, vývoj a nasazení AI chatbota **„SmartAs
 
 | # | Výstup | Termín |
 |---|--------|--------|
-| D1 | Projektový plán a architektura řešení | 24. 1. 2026 |
-| D2 | AI chatbot — funkční jádro s RAG | 7. 2. 2026 |
-| D3 | Webový chat widget + API | 21. 2. 2026 |
-| D4 | Integrace Zendesk + administrátorský dashboard | 7. 3. 2026 |
-| D5 | Vícejazyčná podpora (CZ/EN) + testování | 21. 3. 2026 |
-| D6 | Finální verze, nasazení do produkce | 4. 4. 2026 |
-| D7 | UAT akceptace + go-live | 15. 5. 2026 |
+| D1 | Projektový plán a architektura řešení | 24. 2. 2026 |
+| D2 | AI chatbot — funkční jádro s RAG | 7. 3. 2026 |
+| D3 | Webový chat widget + API | 21. 3. 2026 |
+| D4 | Integrace Zendesk + administrátorský dashboard | 7. 4. 2026 |
+| D5 | Vícejazyčná podpora (CZ/EN) + testování | 21. 4. 2026 |
+| D6 | Finální verze, nasazení do produkce | 4. 5. 2026 |
+| D7 | UAT akceptace + go-live | 15. 6. 2026 |
 
 ---
 
@@ -66,8 +66,8 @@ Předmětem této smlouvy je návrh, vývoj a nasazení AI chatbota **„SmartAs
 
 Objednatel se zavazuje poskytnout Zhotoviteli:
 
-1. Kompletní produktovou dokumentaci v elektronické podobě do **31. 1. 2026**
-2. Přístupy do systému Zendesk (API klíče, testovací prostředí) do **31. 1. 2026**
+1. Kompletní produktovou dokumentaci v elektronické podobě do **28. 2. 2026**
+2. Přístupy do systému Zendesk (API klíče, testovací prostředí) do **28. 2. 2026**
 3. Součinnost při testování — vyhrazení min. 2 pracovníků pro UAT
 4. Zpětnou vazbu k dodaným výstupům do 5 pracovních dní od předání
 
@@ -87,8 +87,8 @@ Cena je stanovena jako **pevná (fixní)** a zahrnuje veškeré náklady Zhotovi
 
 | Milník | Podmínka úhrady | Částka | Stav |
 |--------|-----------------|--------|------|
-| M1 — Zahájení projektu | Po podpisu smlouvy a kickoff meetingu | 300 000 Kč | ✅ Uhrazeno (20. 1. 2026) |
-| M2 — Dodání MVP | Po dodání funkčního MVP (D2 + D3) a akceptaci Objednatelem | 400 000 Kč | ✅ Uhrazeno (25. 2. 2026) |
+| M1 — Zahájení projektu | Po podpisu smlouvy a kickoff meetingu | 300 000 Kč | ✅ Uhrazeno (20. 2. 2026) |
+| M2 — Dodání MVP | Po dodání funkčního MVP (D2 + D3) a akceptaci Objednatelem | 400 000 Kč | ✅ Uhrazeno (25. 3. 2026) |
 | M3 — Finální dodání | Po finálním dodání díla, úspěšném UAT a akceptaci Objednatelem | 500 000 Kč | ⏳ Nesplaceno |
 
 ### 6.3 Splatnost
@@ -99,8 +99,8 @@ Faktury jsou splatné do 14 dní od doručení Objednateli. V případě prodlen
 
 ## 7. Termíny plnění
 
-- **Zahájení prací:** 15. 1. 2026
-- **Termín dokončení díla:** 15. 5. 2026
+- **Zahájení prací:** 15. 2. 2026
+- **Termín dokončení díla:** 15. 6. 2026
 - **Doba trvání projektu:** 4 měsíce
 
 Termín dokončení díla zahrnuje úspěšné provedení UAT a schválení akceptačního protokolu Objednatelem.
@@ -176,7 +176,7 @@ Obě strany se zavazují zachovávat mlčenlivost o důvěrných informacích dr
 
 ---
 
-V Praze dne 10. 1. 2026
+V Praze dne 10. 2. 2026
 
 **Za Zhotovitele:**
 Ing. Martin Novák, projektový manažer

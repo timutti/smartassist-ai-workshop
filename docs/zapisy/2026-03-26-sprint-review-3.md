@@ -1,6 +1,6 @@
 # Zápis z jednání — Sprint Review 3
 
-**Datum:** 26. 2. 2026, 14:00–15:30
+**Datum:** 26. 3. 2026, 14:00–15:30
 **Místo:** Online (MS Teams)
 **Projekt:** SmartAssist AI
 
@@ -16,13 +16,13 @@
 | Lucie Malá | Manažerka zákaznické podpory | NovaTech | |
 | Pavel Horák | IT manažer | NovaTech | Poprvé na projektu! |
 
-**Neúčastnila se:** Petra Černá — dovolená 26. 2. – 5. 3. 2026
+**Neúčastnila se:** Petra Černá — dovolená 26. 3. – 5. 4. 2026
 
 ---
 
 ## Stav sprintu
 
-**Sprint 3: Zendesk integrace + admin dashboard** — 24. 2. – 7. 3. 2026
+**Sprint 3: Zendesk integrace + admin dashboard** — 24. 3. – 7. 4. 2026
 
 Sprint právě začal. Tomáš pracuje na Zendesk integraci, Petra před dovolenou rozběhla admin dashboard.
 
@@ -89,17 +89,17 @@ Tomáš předvedl základní propojení se Zendesk API:
 
 | # | Úkol | Zodpovědný | Termín | Stav |
 |---|------|------------|--------|------|
-| A1 | Připravit odhad nákladů pro CRM integraci | Martin Novák | 5. 3. 2026 | ⚠️ Odesláno 8. 3. (3 dny po termínu) |
-| A2 | Domluvit schůzku Martin + Pavel k řešení hostingu | Martin Novák, Pavel Horák | 5. 3. 2026 | ❌ Schůzka se neuskutečnila |
-| A3 | Implementovat queuing pro Zendesk API | Tomáš Vrba | 7. 3. 2026 | 🟡 Probíhá |
-| A4 | Dokončit admin dashboard (po návratu z dovolené) | Petra Černá | 7. 3. 2026 | 🟡 Probíhá |
+| A1 | Připravit odhad nákladů pro CRM integraci | Martin Novák | 5. 4. 2026 | ⚠️ Odesláno 8. 4. (3 dny po termínu) |
+| A2 | Domluvit schůzku Martin + Pavel k řešení hostingu | Martin Novák, Pavel Horák | 5. 4. 2026 | ❌ Schůzka se neuskutečnila |
+| A3 | Implementovat queuing pro Zendesk API | Tomáš Vrba | 7. 4. 2026 | 🟡 Probíhá |
+| A4 | Dokončit admin dashboard (po návratu z dovolené) | Petra Černá | 7. 4. 2026 | 🟡 Probíhá |
 
 ---
 
 ## Další schůzka
 
-Další review: **12. 3. 2026, 14:00**
+Další review: **12. 4. 2026, 14:00**
 
 ---
 
-*Zapsal: Martin Novák, 26. 2. 2026*
+*Zapsal: Martin Novák, 26. 3. 2026*

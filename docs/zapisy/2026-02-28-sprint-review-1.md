@@ -1,6 +1,6 @@
 # Zápis z jednání — Sprint Review 1
 
-**Datum:** 29. 1. 2026, 14:00–15:00
+**Datum:** 28. 2. 2026, 14:00–15:00
 **Místo:** Online (MS Teams)
 **Projekt:** SmartAssist AI
 
@@ -19,7 +19,7 @@
 
 ## Stav sprintu
 
-**Sprint 1: Jádro chatbotu (RAG)** — 27. 1. – 7. 2. 2026
+**Sprint 1: Jádro chatbotu (RAG)** — 27. 2. – 7. 3. 2026
 
 Sprint ještě běží (review uprostřed sprintu), ale klíčové funkcionality jsou funkční.
 
@@ -49,7 +49,7 @@ Martin: *„Toto je první verze. Jakmile dostaneme kompletní dokumentaci, prov
 
 ## Stav dokumentace
 
-NovaTech dosud nedodal kompletní produktovou dokumentaci. Termín byl 31. 1., ale Lucie avizovala, že specifikace nové produktové řady ještě nejsou hotové.
+NovaTech dosud nedodal kompletní produktovou dokumentaci. Termín byl 28. 2., ale Lucie avizovala, že specifikace nové produktové řady ještě nejsou hotové.
 
 **Lucie:** *„Většinu jsem poslala, ale specifikace na řadu X500 a příslušenství ještě finalizujeme. Budou do konce příštího týdne."*
 
@@ -69,15 +69,15 @@ NovaTech dosud nedodal kompletní produktovou dokumentaci. Termín byl 31. 1., a
 
 | # | Úkol | Zodpovědný | Termín | Stav |
 |---|------|------------|--------|------|
-| A1 | Dodat zbývající produktovou dokumentaci (řada X500, příslušenství) | Lucie Malá | 5. 2. 2026 | ⚠️ Dodáno 12. 2. (další zpoždění!) |
-| A2 | Dokončit Sprint 1 — RAG pipeline + chatbot jádro | Petra Černá | 7. 2. 2026 | ✅ Hotovo |
+| A1 | Dodat zbývající produktovou dokumentaci (řada X500, příslušenství) | Lucie Malá | 5. 3. 2026 | ⚠️ Dodáno 12. 3. (další zpoždění!) |
+| A2 | Dokončit Sprint 1 — RAG pipeline + chatbot jádro | Petra Černá | 7. 3. 2026 | ✅ Hotovo |
 
 ---
 
 ## Další schůzka
 
-Sprint Review 2: **12. 2. 2026, 14:00** (po dokončení Sprintu 2)
+Sprint Review 2: **12. 3. 2026, 14:00** (po dokončení Sprintu 2)
 
 ---
 
-*Zapsal: Martin Novák, 29. 1. 2026*
+*Zapsal: Martin Novák, 28. 2. 2026*

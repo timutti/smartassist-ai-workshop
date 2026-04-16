@@ -14,13 +14,13 @@ cd smartassist-ai-workshop
 
 ## Situace
 
-Je 17. března 2026. Váš kolega **Martin Novák**, projektový manažer ve firmě **DataFlow Solutions s.r.o.**, nečekaně onemocněl. Martin vedl projekt **SmartAssist AI** — inteligentní chatbot pro zákaznickou podporu e-shopu **NovaTech a.s.**
+Je 17. dubna 2026. Váš kolega **Martin Novák**, projektový manažer ve firmě **DataFlow Solutions s.r.o.**, nečekaně onemocněl. Martin vedl projekt **SmartAssist AI** — inteligentní chatbot pro zákaznickou podporu e-shopu **NovaTech a.s.**
 
 Vedení vás požádalo, abyste projekt dočasně převzali. Máte přístup k tomuto repozitáři — je to vše, co od Martina máte. Termín dodání se blíží a klient je nervózní.
 
 ## Vaše úkoly
 
-1. **Zorientujte se v projektu** — pomocí AI nástrojů prozkoumejte dokumentaci i zdrojový kód. Co je hotovo? Co ne? Kde jsou problémy?
+1. **Zorientujte se v projektu** — pomocí AI nástrojů (Claude Code, Cursor, apod.) prozkoumejte dokumentaci i zdrojový kód. Co je hotovo? Co ne? Kde jsou problémy?
 2. **Vytvořte si přehledový dashboard** — shrňte stav projektu tak, abyste ho mohli prezentovat vedení
 3. **Připravte akční plán** — co je potřeba udělat jako první? Jaká rozhodnutí musíte udělat?
 

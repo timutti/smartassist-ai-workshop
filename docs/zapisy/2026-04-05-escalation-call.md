@@ -1,6 +1,6 @@
 # Zápis z jednání — Eskalační schůzka
 
-**Datum:** 5. 3. 2026, 16:00–17:15
+**Datum:** 5. 4. 2026, 16:00–17:15
 **Místo:** Online (MS Teams) — svoláno na žádost Jana Kříže
 **Projekt:** SmartAssist AI
 
@@ -37,8 +37,8 @@ Jan Kříž požádal o mimořádnou schůzku, protože má pocit, že projekt z
 **Martin promítl přehled stavu:**
 - Sprint 1 (RAG jádro) — ✅ Hotovo
 - Sprint 2 (Widget + API) — ✅ Hotovo
-- Sprint 3 (Zendesk + admin) — 🟡 Zpožděno, odhaduji dokončení kolem 14. 3.
-- Sprint 4 (vícejazyčnost + testy) — 📋 Nezahájeno, měl začít 10. 3.
+- Sprint 3 (Zendesk + admin) — 🟡 Zpožděno, odhaduji dokončení kolem 14. 4.
+- Sprint 4 (vícejazyčnost + testy) — 📋 Nezahájeno, měl začít 10. 4.
 
 **Jan:** *„Takže máme týdenní zpoždění a ještě to poroste?"*
 
@@ -94,7 +94,7 @@ Jan Kříž požádal o mimořádnou schůzku, protože má pocit, že projekt z
 
 **Martin:** *„Budu se snažit. Musím si to projít s Petrou a připravit realistické odhady."*
 
-**Jan:** *„Snažte se moc. Pošlete mi to mailem do pátku 13. 3. Pokud to nebudu mít, budeme muset eskalovat výš."*
+**Jan:** *„Snažte se moc. Pošlete mi to mailem do pátku 13. 4. Pokud to nebudu mít, budeme muset eskalovat výš."*
 
 ---
 
@@ -108,20 +108,20 @@ Schůzka probíhala v napjaté atmosféře. Jan Kříž byl viditelně nespokoje
 
 | # | Úkol | Zodpovědný | Termín | Stav |
 |---|------|------------|--------|------|
-| A1 | Odeslat aktualizovaný plán projektu (co se stihne, co ne, kolik stojí extra) | Martin Novák | 13. 3. 2026 | ❌ Martin onemocněl 13. 3. — plán neexistuje! |
-| A2 | Domluvit schůzku s Pavlem k Azure hostingu | Martin Novák | 10. 3. 2026 | ❌ Schůzka se neuskutečnila |
-| A3 | Připravit odhad pro slovenštinu | Martin Novák | 10. 3. 2026 | ❌ Nepřipraveno |
-| A4 | Dokončit Zendesk integraci (rate limit fix) | Petra Černá | 14. 3. 2026 | 🟡 Probíhá |
-| A5 | Dokončit admin dashboard | Petra Černá | 14. 3. 2026 | 🟡 Probíhá |
+| A1 | Odeslat aktualizovaný plán projektu (co se stihne, co ne, kolik stojí extra) | Martin Novák | 13. 4. 2026 | ❌ Martin onemocněl 13. 4. — plán neexistuje! |
+| A2 | Domluvit schůzku s Pavlem k Azure hostingu | Martin Novák | 10. 4. 2026 | ❌ Schůzka se neuskutečnila |
+| A3 | Připravit odhad pro slovenštinu | Martin Novák | 10. 4. 2026 | ❌ Nepřipraveno |
+| A4 | Dokončit Zendesk integraci (rate limit fix) | Petra Černá | 14. 4. 2026 | 🟡 Probíhá |
+| A5 | Dokončit admin dashboard | Petra Černá | 14. 4. 2026 | 🟡 Probíhá |
 
 ---
 
 ## Kritická poznámka
 
-**13. března 2026 Martin Novák onemocněl** (neschopenka, předpokládaný návrat nejdříve 20. 3.). Aktualizovaný plán, který Jan Kříž požadoval do tohoto data, **nebyl vytvořen a nebyl odeslán**. Schůzka s Pavlem k hostingu se neuskutečnila. Odhad pro slovenštinu nebyl připraven.
+**13. dubna 2026 Martin Novák onemocněl** (neschopenka, předpokládaný návrat nejdříve 20. 4.). Aktualizovaný plán, který Jan Kříž požadoval do tohoto data, **nebyl vytvořen a nebyl odeslán**. Schůzka s Pavlem k hostingu se neuskutečnila. Odhad pro slovenštinu nebyl připraven.
 
 Projekt je aktuálně bez projektového manažera. Petra Černá a Tomáš Vrba pokračují ve vývoji, ale nemají mandát jednat s klientem ani rozhodovat o rozsahu.
 
 ---
 
-*Zapsal: Martin Novák, 5. 3. 2026*
+*Zapsal: Martin Novák, 5. 4. 2026*

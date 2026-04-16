@@ -4,13 +4,13 @@
 **Klient:** NovaTech a.s.
 **Celková cena díla:** 1 200 000 Kč (pevná cena dle smlouvy)
 **Projektový manažer:** Martin Novák
-**Poslední aktualizace:** 10. 3. 2026
+**Poslední aktualizace:** 10. 4. 2026
 
 ---
 
 ## Celkový rozpočet dle kategorií
 
-| Kategorie | Plán (Kč) | Čerpáno k 10. 3. (Kč) | Zbývá (Kč) | Čerpáno (%) |
+| Kategorie | Plán (Kč) | Čerpáno k 10. 4. (Kč) | Zbývá (Kč) | Čerpáno (%) |
 |-----------|-----------|------------------------|------------|-------------|
 | Řízení projektu (PM) | 180 000 | 140 000 | 40 000 | 78 % |
 | Vývoj AI chatbotu | 420 000 | 380 000 | 40 000 | 90 % |
@@ -27,8 +27,8 @@
 
 | Milník | Částka | Stav | Datum úhrady |
 |--------|--------|------|--------------|
-| M1 — Po kickoffu | 300 000 Kč | ✅ Uhrazeno | 20. 1. 2026 |
-| M2 — Po dodání MVP | 400 000 Kč | ✅ Uhrazeno | 25. 2. 2026 |
+| M1 — Po kickoffu | 300 000 Kč | ✅ Uhrazeno | 20. 2. 2026 |
+| M2 — Po dodání MVP | 400 000 Kč | ✅ Uhrazeno | 25. 3. 2026 |
 | M3 — Po finálním dodání + akceptaci | 500 000 Kč | ⏳ Nesplaceno | — |
 | **Celkem přijato** | **700 000 Kč** | | |
 | **Celkem vynaloženo** | **795 000 Kč** | | |
@@ -42,12 +42,12 @@
 
 | Měsíc | Náklady | Kumulativně | % z celku |
 |-------|---------|-------------|-----------|
-| Leden 2026 | 210 000 | 210 000 | 18 % |
-| Únor 2026 | 340 000 | 550 000 | 46 % |
-| Březen 2026 (k 10. 3.) | 245 000 | 795 000 | 66 % |
-| Březen (odhad do konce) | ~150 000 | ~945 000 | ~79 % |
-| Duben (odhad) | ~180 000 | ~1 125 000 | ~94 % |
-| Květen (odhad) | ~75 000 | ~1 200 000 | 100 % |
+| Únor 2026 | 210 000 | 210 000 | 18 % |
+| Březen 2026 | 340 000 | 550 000 | 46 % |
+| Duben 2026 (k 10. 4.) | 245 000 | 795 000 | 66 % |
+| Duben (odhad do konce) | ~150 000 | ~945 000 | ~79 % |
+| Květen (odhad) | ~180 000 | ~1 125 000 | ~94 % |
+| Červen (odhad) | ~75 000 | ~1 200 000 | 100 % |
 
 ---
 
@@ -104,7 +104,7 @@ Klient v průběhu projektu vznesl požadavky, které **nejsou součástí smlou
 
 | Požadavek | Odhadované náklady | Odhadovaná pracnost | Stav |
 |-----------|-------------------|---------------------|------|
-| Integrace se Salesforce CRM | 280 000 Kč | 20 MD | Odhad odeslán klientovi 8. 3. |
+| Integrace se Salesforce CRM | 280 000 Kč | 20 MD | Odhad odeslán klientovi 8. 4. |
 | Další jazyky (DE, SK) | 110 000 Kč | 8 MD | Odhad nepřipraven |
 | Hosting v Azure tenantu klienta | 85 000 Kč | 6 MD | Neřešeno |
 | **Celkem** | **475 000 Kč** | **34 MD** | |
@@ -113,4 +113,4 @@ Klient v průběhu projektu vznesl požadavky, které **nejsou součástí smlou
 
 ---
 
-*Zpracoval: Martin Novák, 10. 3. 2026*
+*Zpracoval: Martin Novák, 10. 4. 2026*

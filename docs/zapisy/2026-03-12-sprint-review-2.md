@@ -1,6 +1,6 @@
 # Zápis z jednání — Sprint Review 2
 
-**Datum:** 12. 2. 2026, 14:00–15:15
+**Datum:** 12. 3. 2026, 14:00–15:15
 **Místo:** Online (MS Teams)
 **Projekt:** SmartAssist AI
 
@@ -16,13 +16,13 @@
 | Jan Kříž | Obchodní ředitel | NovaTech |
 | Lucie Malá | Manažerka zákaznické podpory | NovaTech |
 
-**Pozn.:** Tomáš Vrba se účastní poprvé — nastoupil do projektu na začátku Sprintu 2 (10. 2.).
+**Pozn.:** Tomáš Vrba se účastní poprvé — nastoupil do projektu na začátku Sprintu 2 (10. 3.).
 
 ---
 
 ## Stav sprintu
 
-**Sprint 2: Chat widget + API** — 10. 2. – 21. 2. 2026
+**Sprint 2: Chat widget + API** — 10. 3. – 21. 3. 2026
 
 Sprint právě začal, ale ukazujeme první výsledky z rozpracovaného widgetu + dokončený Sprint 1.
 
@@ -61,7 +61,7 @@ Tomáš předvedl rozpracovaný chat widget:
 
 ## Nový člen týmu — Tomáš Vrba
 
-Tomáš nastoupil do projektu 10. 2. jako junior vývojář. Bude se zaměřovat na frontend (chat widget, admin dashboard) a později na Zendesk integraci.
+Tomáš nastoupil do projektu 10. 3. jako junior vývojář. Bude se zaměřovat na frontend (chat widget, admin dashboard) a později na Zendesk integraci.
 
 Petra poznamenala, že onboarding Tomáše zabral víc času, než čekala — první 3 dny strávila vysvětlováním architektury a codebase, což zpomalilo její vlastní práci na API.
 
@@ -71,7 +71,7 @@ Petra poznamenala, že onboarding Tomáše zabral víc času, než čekala — p
 
 ## Diskuse
 
-- Zbývající dokumentace konečně dodána (12. 2.) — původní termín byl 31. 1., tedy celkem 12 dní zpoždění
+- Zbývající dokumentace konečně dodána (12. 3.) — původní termín byl 28. 2., tedy celkem 12 dní zpoždění
 - Sprint 2 probíhá dle plánu, ale onboarding juniora stojí čas senior vývojářky
 - Klient vznesl dva nové požadavky mimo scope: další jazyky (DE/SK) a CRM integrace
 
@@ -81,16 +81,16 @@ Petra poznamenala, že onboarding Tomáše zabral víc času, než čekala — p
 
 | # | Úkol | Zodpovědný | Termín | Stav |
 |---|------|------------|--------|------|
-| A1 | Připravit odhad nákladů pro DE/SK lokalizaci | Martin Novák | 21. 2. 2026 | ❌ Neodesláno (k 13. 3.) |
-| A2 | Připravit odhad pro CRM (Salesforce) integraci | Martin Novák | 21. 2. 2026 | ⚠️ Odesláno 8. 3. (se zpožděním) |
-| A3 | Dokončit Sprint 2 — widget + API | Tomáš, Petra | 21. 2. 2026 | ✅ Hotovo |
+| A1 | Připravit odhad nákladů pro DE/SK lokalizaci | Martin Novák | 21. 3. 2026 | ❌ Neodesláno (k 13. 4.) |
+| A2 | Připravit odhad pro CRM (Salesforce) integraci | Martin Novák | 21. 3. 2026 | ⚠️ Odesláno 8. 4. (se zpožděním) |
+| A3 | Dokončit Sprint 2 — widget + API | Tomáš, Petra | 21. 3. 2026 | ✅ Hotovo |
 
 ---
 
 ## Další schůzka
 
-Sprint Review 3: **26. 2. 2026, 14:00**
+Sprint Review 3: **26. 3. 2026, 14:00**
 
 ---
 
-*Zapsal: Martin Novák, 12. 2. 2026*
+*Zapsal: Martin Novák, 12. 3. 2026*
