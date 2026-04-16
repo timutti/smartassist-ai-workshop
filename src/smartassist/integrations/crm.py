@@ -1,12 +1,12 @@
 # Napojení na Salesforce CRM - MIMO ROZSAH SMLOUVY
-# Klient požaduje od Sprint Review 1 (29.1.), dosud nepotvrzeno jako change request
+# Klient požaduje od Sprint Review 1 (28.2.), dosud nepotvrzeno jako change request
 # Předběžný odhad: 20 MD / 280 000 Kč
 #
 # Kontakt na straně klienta: Pavel Horák (IT manažer NovaTech), pavel.horak@novatech.cz
 # Salesforce instance: https://novatech.my.salesforce.com
 # API verze: v59.0
 #
-# Poznámka z 12.2.: Klient urguje napojení na CRM kvůli "unified customer view".
+# Poznámka z 12.3.: Klient urguje napojení na CRM kvůli "unified customer view".
 # Zatím nemáme přístupové údaje k sandboxu.
 
 """Salesforce CRM integration for SmartAssist AI.

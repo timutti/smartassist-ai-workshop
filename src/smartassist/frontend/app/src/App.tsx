@@ -48,7 +48,7 @@ const initialMessages: Message[] = [
     id: "5",
     role: "assistant",
     content:
-      "Děkuji. Našel jsem vaši objednávku **NT-2026-04521** — Notebook ProBook X15, zakoupený 14. února 2026. Jaký problém s notebookem máte?",
+      "Děkuji. Našel jsem vaši objednávku **NT-2026-04521** — Notebook ProBook X15, zakoupený 14. března 2026. Jaký problém s notebookem máte?",
     timestamp: "09:02",
   },
 ]

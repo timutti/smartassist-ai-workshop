@@ -1,6 +1,6 @@
 # TODO: Kompletní implementace vícejazyčnosti
 # Ve smlouvě máme CZ + EN, klient chce i SK a DE (mimo smlouvu)
-# Pozn.: Lucie (NovaTech) 26.2. řekla "další jazyky počkají", ale 5.3. chce slovenštinu "od začátku"
+# Pozn.: Lucie (NovaTech) 26.3. řekla "další jazyky počkají", ale 5.4. chce slovenštinu "od začátku"
 #
 # Aktuální stav:
 # - Detekce jazyka: základní implementace (funguje pro CZ/EN, SK detekuje jako CZ)
@@ -158,7 +158,7 @@ async def translate_response(text: str, target_language: str) -> str:
 #     in Czech will match Slovak queries, but we should normalize
 #     some key differences.
 #
-#     Experiment from 3.3. - nefunguje dobře, diacritika se rozpadá
+#     Experiment from 3.4. - nefunguje dobře, diacritika se rozpadá
 #     """
 #     replacements = {
 #         "ľ": "l",

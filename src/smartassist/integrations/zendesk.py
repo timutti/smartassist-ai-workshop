@@ -8,7 +8,7 @@ Dokumentace: https://developer.zendesk.com/api-reference/
 """
 
 # BUG: Zendesk API rate limit je 200 req/min, ale my neřešíme throttling
-# Viz incident z 10.2. kdy nám Zendesk zablokoval přístup na 5 minut
+# Viz incident z 10.3. kdy nám Zendesk zablokoval přístup na 5 minut
 
 import logging
 from typing import Any
@@ -198,7 +198,7 @@ class ZendeskClient:
         # TODO: sync_ticket_status - Tomáš na tom pracuje, ale API vrací nekonzistentní stavy
         # Zendesk někdy vrací "open" i pro tickety které jsme zavřeli přes API
         # Možná je to race condition s jejich webhooky?
-        # Viz Slack vlákno #integrace z 18.2.
+        # Viz Slack vlákno #integrace z 18.3.
         raise NotImplementedError("Ticket status sync is not yet implemented. See SMART-38 for progress.")
 
     async def close(self) -> None:

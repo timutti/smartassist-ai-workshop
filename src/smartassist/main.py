@@ -195,12 +195,12 @@ async def list_conversations() -> list[dict]:
     will be implemented with PostgreSQL in Sprint 3.
     """
     # TODO: Napojit na databázi - zatím vracíme mock data
-    # Plán: PostgreSQL + SQLAlchemy, Sprint 3 (březen)
+    # Plán: PostgreSQL + SQLAlchemy, Sprint 3 (duben)
     return [
         {
             "id": "conv-001",
-            "started_at": "2026-02-15T10:30:00Z",
-            "last_message_at": "2026-02-15T10:35:22Z",
+            "started_at": "2026-04-10T10:30:00Z",
+            "last_message_at": "2026-04-10T10:35:22Z",
             "message_count": 6,
             "status": "resolved",
             "summary": "Dotaz na stav objednávky #NT-2024-1582",
@@ -208,8 +208,8 @@ async def list_conversations() -> list[dict]:
         },
         {
             "id": "conv-002",
-            "started_at": "2026-02-15T11:02:00Z",
-            "last_message_at": "2026-02-15T11:08:45Z",
+            "started_at": "2026-04-10T11:02:00Z",
+            "last_message_at": "2026-04-10T11:08:45Z",
             "message_count": 4,
             "status": "escalated",
             "summary": "Reklamace - nefunkční notebook po 2 týdnech",
@@ -217,8 +217,8 @@ async def list_conversations() -> list[dict]:
         },
         {
             "id": "conv-003",
-            "started_at": "2026-02-15T14:15:00Z",
-            "last_message_at": "2026-02-15T14:16:30Z",
+            "started_at": "2026-04-10T14:15:00Z",
+            "last_message_at": "2026-04-10T14:16:30Z",
             "message_count": 2,
             "status": "open",
             "summary": "Question about international shipping to Germany",
